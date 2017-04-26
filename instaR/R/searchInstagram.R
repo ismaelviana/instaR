@@ -66,10 +66,11 @@
 #' }
 #'
 
-searchInstagram <- function(tag=NULL, token, n=100, lat=NULL, lng=NULL, 
+searchInstagram <- function(tag=NULL, token, n=100, lat=NULL, lng=NULL,
                             distance=NULL, folder=NULL, mindate=NULL, maxdate=NULL, verbose=TRUE, sleep=0){
-  
-  if (!is.null(tag)) url <- paste0("https://api.instagram.com/v1/tags/", tag, "/media/recent?")
+  ##
+  if (!is.null(tag)) url <- paste0("https://api.instagram.com/v1/tags/search?q=", tag, "&access_token=")
+  ##
   if (!is.null(lat) && !is.null(lng)) {
     url <- paste0("https://api.instagram.com/v1/media/search?lat=", lat, 
                   "&lng=", lng)
